@@ -1,18 +1,15 @@
-# streamlit-multipage-template
+# 中国极端气象水文事件实时监测、动态预警与损失评估
 
-A streamlit multipage app template for geospatial applications. It can be deployed to [Streamlit Cloud](https://streamlit.io/cloud) or [MyBinder](https://mybinder.org/).
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/giswqs/streamlit-multipage-template/master?urlpath=proxy/8501/)
-
-Web App URL: <https://geotemplate.streamlit.app>
+> Dongdong Kong, CUG
 
 ## Instructions
 
-1. For the GitHub repository or use it as a template for your own project.
-2. Customize the sidebar by changing the sidebar text and logo in each Python file.
-3. Find your favorite emoji from https://emojipedia.org.
-4. Add a new app to the `pages/` directory with an emoji in the file name, e.g., 1_🚀_Chart.py.
+1. Find your favorite emoji from https://emojipedia.org.
+2. Add a new app to the `pages/` directory with an emoji in the file name, e.g., 1_🚀_Chart.py.
 
-## Demo
 
-![](https://i.imgur.com/6lj0oAO.png)
+## References
+
+1. <https://streamlit.io/cloud>
+
+2. <https://geotemplate.streamlit.app>
