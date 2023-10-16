@@ -23,7 +23,7 @@ if st.button("Get Clicked Coordinates"):
     # 添加一个自定义的JavaScript代码块来处理地图上的单击事件
     html = """
     <script>
-    var map = document.querySelector('.folium-map');
+    var map = document.querySelector('#map_div'); //.folium-map
     map.addEventListener('click', function(e){
         var lat = e.latlng.lat;
         var lon = e.latlng.lng;

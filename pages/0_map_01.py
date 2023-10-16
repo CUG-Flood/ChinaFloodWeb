@@ -20,7 +20,6 @@ stationInfo = db.read_table("st_daily_met2481")
 cug_new = [30.46001618003947, 114.61223316513498]
 cug_old = [30.46001618003947, 114.61223316513498]
 
-
 @st.cache_resource
 def addLayer_base():
     # m = folium.Map(location=loc_cug, zoom_start=16)
@@ -44,7 +43,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     st_data = st_folium(m, height=800, width = 1500, feature_group_to_add=fg, 
-                        returned_objects=["last_object_clicked"])
+                        returned_objects=[]) # "last_object_clicked"
 with col2:
     st_data
 
