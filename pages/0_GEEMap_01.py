@@ -93,4 +93,6 @@ Map.to_streamlit()
 
 2. 未添加除云的功能
    > js to python
+
+3. 添加生成tif的方法
 """
