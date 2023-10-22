@@ -19,17 +19,15 @@ folium.Marker(
 st_data = st_folium(m, width=725)
 st_data
 
-
 ## 寒潮部分
 
 """
 ## 1. 查询数据
 """
-
-cursor = db_login()
+db = DataBase()  # auto login
 
 ## 所有站点
-stationInfo = query_data_site(cursor, "st_daily_met2481")
+stationInfo = db.read_table("st_daily_met2481")
 sites = stationInfo["site"].to_list()
 
 "### 站点信息"
@@ -37,7 +35,8 @@ site = st.selectbox("请选择一个站点", sites, index=sites.index(sites[0]))
 stationInfo[stationInfo.site == site]
 
 "### 站点数据"
-df = query_data_site(cursor, "China_Mete2000_daily_1951_2019", site)
+df = db.read_table("China_Mete2000_daily_1951_2019", site)
+# df = query_data_site(cursor, )
 df
 
 ## 简单的绘图

@@ -3,7 +3,7 @@ import folium as fl
 from streamlit_folium import st_folium
 import streamlit as st
 import pandas as pd
-from pages.floodmap import *
+from floodmap import *
 import asyncio
 import time
 
