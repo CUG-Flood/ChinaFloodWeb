@@ -3,7 +3,7 @@ import folium as fl
 from streamlit_folium import st_folium
 import streamlit as st
 import pandas as pd
-from floodmap import *
+from pages.floodmap import *
 import asyncio
 import time
 
@@ -14,10 +14,22 @@ st.set_page_config(layout="wide")
 @st.cache_resource
 def load_data():
   df = pd.read_csv("data/st_2481.csv")
-  return df.loc[:, ["name", "lon", "lat"]] # "site", "prov", 
+  return df.loc[:, ["name", "prov", "lon", "lat"]] # "site", "prov", 
 
 
-stationInfo = load_data().iloc[0:2400] # 1500个站点能抗住
+stationInfo_all = load_data().iloc[0:2400] # 1500个站点能抗住
+
+
+"## 选择省份"
+provs = stationInfo_all.prov.unique().tolist()
+print(provs)
+
+prov = st.selectbox("请选择省份", provs, index=provs.index("湖北"))
+stationInfo = stationInfo_all[stationInfo_all.prov == prov]
+n = stationInfo.shape[0]
+f"{prov}共{n}个站点"
+
+
 sites = stationInfo["name"].to_list()
 site0 = sites[0]
 # site0 = "武汉"
@@ -66,38 +78,25 @@ async def draw_async():
                     returned_objects=events, height=700, width="100%")
     print("--- %s seconds ---" % (time.time() - t0))
 
-  with c1:
-    map
-
+  # with c1:
+  #   map
 
 ## 异步并未发挥作用
 try:
   # async run the draw function, sending in all the
   # widgets it needs to use/populate
-  "# 我正在运行"
   asyncio.run(draw_async())
   
 except Exception as e:
   print(f'error...{type(e)}')
   raise
 finally:
-  "# 我运行结束了"
   # some additional code to handle user clicking stop
   print('finally')
-
-
-"# 我已经早结束了"
-
+  
 # map_click = map["last_clicked"]
 # map_click
-
-
 # TODO: 添加所有的点
-
-# 添加一个动态更新的机制
-# if zoom_value != map["zoom"]:
-#   zoom_value = map["zoom"]
-#   "debug"
 
 # 猜测哪个点被选择了，然后进行绘图
 # get_click_pos(map['last_clicked'])

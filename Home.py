@@ -1,5 +1,10 @@
 import streamlit as st
 import leafmap.foliumap as leafmap
+# import os
+
+import sys
+sys.path.insert(0, "./pages/floodmap")
+
 
 st.set_page_config(layout="wide")
 

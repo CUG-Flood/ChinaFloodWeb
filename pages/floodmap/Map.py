@@ -28,8 +28,8 @@ Map.add_children = add_children
 folium.FeatureGroup.add_children = add_children
 
 
-@st.cache_data
-@st.cache_resource
+# @st.cache_resource
+# @st.cache_data
 def add_FeatureGroup(df, group_name="site_group"):
   """
   fg, points = add_FeatureGroup(df)
